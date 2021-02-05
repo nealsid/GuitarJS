@@ -774,6 +774,17 @@
           return Math.floor(fretboardCoords.x / (fretWidth + fretBarWidth)) + 1;
       }
 
+
+      let stringCoordinates = [];
+      for (var i = 0; i < numStrings; i++) {
+	  stringCoordinates.push([50, 50 + stringSpacing * i, 1000, stringHeight]);
+      }
+
+      function isCoordinateOnString(fretboardCoords) {
+	  for (var i = 0; i < stringCoordinates.length; i++) {
+	      if 9
+	  }
+      }
       const width = canvas.width = window.innerWidth;
       const height = canvas.height = window.innerHeight;
       const ctx = canvas.getContext('2d');
@@ -815,9 +826,14 @@
           ctx.arc(fretUl.x + fretWidth / 2, fretUl.y + 2, fretDotRadius, degToRad(0), degToRad(360), false);
           ctx.fill();
       });
+
+
       ctx.fillStyle = 'rgb(209, 209, 207)';
-      for (var i = 0; i < numStrings; i++) {
-          ctx.fillRect(50, 50 + stringSpacing * i, 1000, stringHeight);
+      for (var i = 0; i < stringCoordinates.length; i++) {
+          ctx.fillRect(stringCoordinates[i][0],
+		       stringCoordinates[i][1],
+		       stringCoordinates[i][2],
+		       stringCoordinates[i][3]);
       }
 
     </script>
