@@ -113,6 +113,7 @@ class GuitarRender {
       var fretNumber = this.getFretNumberForCoords(fretboardCoords);
       console.log(fretNumber);
       console.log(this.isCoordinateOnString(fretboardCoords));
+      guitarInstrument.strumChord(0, true, 1.0, [3, 2, 0, 0, 0, 3]);
     };
   }
 
