@@ -17,53 +17,60 @@
       <p>Add suitable fallback here.</p>
     </canvas>
     <script>
-    const canvas = document.querySelector('.myCanvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+     const canvas = document.querySelector('.myCanvas');
+     canvas.width = window.innerWidth;
+     canvas.height = window.innerHeight;
 
-    let guitar = new Guitar();
-    let g = new GuitarRender(guitar, canvas);
-    g.draw();
-      // function turnClientCoordinatesIntoFretboardRelativeCoordinates(clientX, clientY) {
-      //     return {'x': clientX - (canvas.offsetLeft + fretboardStartX),
-      //             'y': clientY - (canvas.offsetTop + fretboardStartY)
-      //            };
-      // }
+     let guitarStrings = [new GuitarString(0, "E"),
+			  new GuitarString(1, "A"),
+			  new GuitarString(2, "D"),
+			  new GuitarString(3, "G"),
+			  new GuitarString(4, "B"),
+			  new GuitarString(5, "E")];
 
-      // canvas.onclick = function(e) {
-      //     console.log('click canvas' + e);
-      //     var fretboardCoords = turnClientCoordinatesIntoFretboardRelativeCoordinates(e.clientX, e.clientY);
-      //     var fretNumber = getFretNumberForCoords(fretboardCoords);
-      //     console.log(fretNumber);
-      // 	  console.log(isCoordinateOnString(fretboardCoords));
-      // };
+     let guitar = new Guitar(guitarStrings);
+     let g = new GuitarRender(guitar, canvas);
+     g.draw();
+	 // function turnClientCoordinatesIntoFretboardRelativeCoordinates(clientX, clientY) {
+	 //     return {'x': clientX - (canvas.offsetLeft + fretboardStartX),
+	 //             'y': clientY - (canvas.offsetTop + fretboardStartY)
+	 //            };
+	 // }
 
-      // function getFretNumberForCoords(fretboardCoords) {
-      //     return Math.floor(fretboardCoords.x / (fretWidth + fretBarWidth)) + 1;
-      // }
+	 // canvas.onclick = function(e) {
+	 //     console.log('click canvas' + e);
+	 //     var fretboardCoords = turnClientCoordinatesIntoFretboardRelativeCoordinates(e.clientX, e.clientY);
+	 //     var fretNumber = getFretNumberForCoords(fretboardCoords);
+	 //     console.log(fretNumber);
+	 // 	  console.log(isCoordinateOnString(fretboardCoords));
+	 // };
+
+	 // function getFretNumberForCoords(fretboardCoords) {
+	 //     return Math.floor(fretboardCoords.x / (fretWidth + fretBarWidth)) + 1;
+	 // }
 
 
-      // let stringCoordinates = [];
-      // const stringHeight = 3;
-      // const numStrings = 6;
-      // const stringSpacing = 150 / numStrings;
+	 // let stringCoordinates = [];
+	 // const stringHeight = 3;
+	 // const numStrings = 6;
+	 // const stringSpacing = 150 / numStrings;
 
-      // for (var i = 0; i < numStrings; i++) {
-      // 	  stringCoordinates.push([50, 50 + stringSpacing * i, 1000, stringHeight]);
-      // }
+	 // for (var i = 0; i < numStrings; i++) {
+	 // 	  stringCoordinates.push([50, 50 + stringSpacing * i, 1000, stringHeight]);
+	 // }
 
-      // function isCoordinateOnString(fretboardCoords) {
-      // 	  for (var i = 0; i < stringCoordinates.length; i++) {
-      // 	      var stringXStart = stringCoordinates[i][0];
-      // 	      var stringYStart = stringCoordinates[i][1];
-      // 	      var stringYEnd = stringCoordinates[i][1] + stringHeight;
+	 // function isCoordinateOnString(fretboardCoords) {
+	 // 	  for (var i = 0; i < stringCoordinates.length; i++) {
+	 // 	      var stringXStart = stringCoordinates[i][0];
+	 // 	      var stringYStart = stringCoordinates[i][1];
+	 // 	      var stringYEnd = stringCoordinates[i][1] + stringHeight;
 
-      // 	      if (fretboardCoords.y >= stringCoordinates[i][2] && fretboardCoords.y <= stringCoordinates[i][2] + stringHeight) {
-      // 		  return true;
-      // 	      }
-      // 	  }
-      // 	  return false;
-      // }
+	 // 	      if (fretboardCoords.y >= stringCoordinates[i][2] && fretboardCoords.y <= stringCoordinates[i][2] + stringHeight) {
+	 // 		  return true;
+	 // 	      }
+	 // 	  }
+	 // 	  return false;
+	 // }
 
     </script>
     <button onclick="guitar.strumChord(0.5, true, 1.0, Guitar.C_MAJOR);">Click here</button>
